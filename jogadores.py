@@ -38,6 +38,8 @@ jogadores.append("J5")
 #Nº de ocorrências do J5
 jogadores.count("J5")
 
+
+
 # LIST COMPREHENSION
 # nums = []
 # for i in range(1,101):

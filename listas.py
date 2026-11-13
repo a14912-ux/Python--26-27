@@ -1,44 +1,57 @@
-nums = [2,5,8,11,7,9,13]
+import random
 
-soma = sum(nums)
-maior = max(nums)
-menor = min(nums)
-media = soma / len(nums)
+jogador = { 
+    "Pontos de Vida": 300,
+    "Pontos de Ataque  Base": 20, 
+    "Poçoes": 2, 
+    "Pontos": 0
+    }
 
-# Imprimir a lista
-print(nums) # [2,5,8,11,7,9,13]
+inimigos = [
+    {"Nome": "Goblin", "Pontos de Vida": 40, "Pontos de Ataque": 8, "Pontos": 100},
+    {"Nome": "Orc", "Pontos de Vida": 55, "Pontos de Ataque": 11, "Pontos": 200},
+    {"Nome": "Troll", "Pontos de Vida": 70, "Pontos de Ataque": 14, "Pontos": 300},
+    {"Nome": "Beast", "Pontos de Vida": 85, "Pontos de Ataque": 17, "Pontos": 400},
+    {"Nome": "Dragão", "Pontos de Vida": 100, "Pontos de Ataque": 20, "Pontos": 500}
+]
 
-# Imprimir um elemento da lista
-print(nums[2]) #8
+for i in range(3):
+    numero = random.randint(0, 4)
+    inimigo = inimigos[numero]
+    inimigos.append(inimigo)
 
-# Inserir um novo elemento no final da lista
-nums.append(17) # [2,5,8,11,7,9,13,17]
+def criar_menu():
+    print("\n========== BATALHA ==========")
+    print("1 - Atacar Inimigo")
+    print("2 - Consultar Estado do jogador")
+    print("3 - Listar Inimigos Vivos")
+    print("4 - Usar Poção de Cura")
+    print("5 - Fugir / Terminar Jogo")
 
-# Inserir varios elementos no final da lista
-nums.extend([12,16]) # [2,5,8,11,7,9,13,17,12,16]
+def atacar_inimigos():
+    vivos = []
 
-# Inserir em posição específica
-nums.insert(3,29) # [2,5,8,29,11,7,9,13,17,12,16]
+    for inimigo in inimigos:
+        if inimigo ["Pontos de Vida"] > 0:
+            vivos.append(inimigo)
 
-# Remover o elemento final da lista
-nums.pop() # [2,5,8,29,11,7,9,13,17,12]
+    if vivos == 0:
+        print("Não existe inimigos vivos")
+        return
 
-# Remover o elemento de uma posição específica da lista pelo índice
-nums.pop(2) # [2,5,29,11,7,9,13,17,12]
+    for i in range(len(vivos)):
+        print(i + 1, "-", vivos[i]["Nome"])
 
-# Remover o elemento de uma posição específica da lista pelo valor
-nums.remove(17) # [2,5,29,11,7,9,13,12]
+    escolha = int(input("Escolhe um inimigo: "))
 
-# nº de elementos da lista
-total = len(nums) # 8
+    
+    inimigo = vivos[escolha - 1]
 
-for n in nums: # Para cada elemento da minha lista
-    if n <= 10:
-        print(n, end=" ")
+    dano = random.randint(10, 20)
 
-for indice in range(len(nums)):
-    if nums[indice] <= 10:
-        print(nums[indice], end=" ")
+    inimigo["Pontos de Vida"] = max(0, inimigo["Pontos de Vida"] - dano)
 
+
+    
 
 

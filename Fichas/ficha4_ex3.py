@@ -19,19 +19,27 @@ biblioteca = {
     }
 }
 
-#print(biblioteca["livro1"]["titulo"])
-#print(biblioteca["livro2"]["titulo"])
-#print(biblioteca["livro3"]["titulo"])
 
-#biblioteca["livro4"] = {
-    #"titulo": "Python para Todos",
-    #"autor": "Charles Severance",
-    #"ano": 2016,
-    #"disponivel": True
-#}
-#print(biblioteca)
+print(" 1. Livros Disponíveis ")
+for livro, dados in biblioteca.items():
+    if dados["disponivel"]:
+        print(dados["titulo"])
+
+
+biblioteca["livro4"] = {
+    "titulo": "Python para Todos",
+    "autor": "Charles Severance",
+    "ano": 2016,
+    "disponivel": True
+}
 
 biblioteca["livro1"]["disponivel"] = False
 
-for chave, valor in biblioteca.items():
-    print(f"{valor['titulo']}: {valor['autor']}")
+livros_luciano = []
+for livro, dados in biblioteca.items():
+    if dados["autor"] == "Luciano Ramalho":
+        livros_luciano.append(dados["titulo"])
+
+print(" 4. Livros do Luciano Ramalho ")
+print(livros_luciano)
+

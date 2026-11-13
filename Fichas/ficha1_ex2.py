@@ -34,3 +34,5 @@ print("A menor nota é:", menor)
 print("A média da turma é:", media)
 print("Percentagem de aprovação:", percentagem, "%")
 
+
+

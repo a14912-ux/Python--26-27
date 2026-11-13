@@ -37,4 +37,6 @@ print(" O menor numero é ",menor)
 print(" A media é ",media) 
 print(" A lista tem ", Nsuperioramedia, " numeros maiores que a média") 
 print(" A lista superior á média ", listamedia)
+
+
  
